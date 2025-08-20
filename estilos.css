@@ -1,0 +1,170 @@
+/* ===== FONTES ===== */
+/* Importa as fontes usadas: 
+   - Bangers (para títulos)
+   - Inter (para textos comuns) */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;700&display=swap');
+
+/* ===== CORES E VARIÁVEIS ===== */
+/* Aqui criamos variáveis para não repetir valores */
+:root {
+  --red: #c1121f;        /* Vermelho principal */
+  --dark: #111;          /* Fundo escuro do site */
+  --light: #f5f5f5;      /* Texto claro */
+  --muted: #9ca3af;      /* Texto secundário/cinza */
+  --radius: 12px;        /* Cantos arredondados */
+  --shadow: 0 4px 12px rgba(0,0,0,.25); /* Efeito de sombra */
+}
+
+/* ===== RESET BÁSICO ===== */
+/* Remove espaçamentos padrões do navegador */
+* { box-sizing: border-box; }
+body, html { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; object-fit: cover; } /* imagens se adaptam e cortam se preciso */
+a { text-decoration: none; color: inherit; } /* links não ficam azuis sublinhados */
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Inter', sans-serif; /* Fonte padrão dos textos */
+  color: var(--light);              /* Cor do texto clara */
+  background: var(--dark);          /* Fundo escuro */
+}
+
+/* ===== CONTAINER ===== */
+/* Usado para centralizar o conteúdo */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;  /* Centraliza na tela */
+  padding: 0 1rem; /* Espaço lateral */
+}
+
+/* ===== TEXTOS ===== */
+.title {
+  font-family: 'Bangers', cursive;   /* Fonte estilizada */
+  letter-spacing: .5px;              /* Espaçamento entre letras */
+  font-size: clamp(2rem, 6vw, 3rem); /* Tamanho que se adapta à tela */
+  margin: 0 0 .5rem;
+}
+.lead {
+  color: var(--muted); /* Cinza suave */
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.highlight {
+  color: var(--red); /* Destaca em vermelho */
+  text-shadow: 0 2px 0 rgba(0,0,0,.35); /* Sombra leve */
+}
+
+/* ===== CABEÇALHO / MENU ===== */
+.site-header {
+  background: #000;    /* Fundo preto */
+  position: sticky;    /* Sempre visível no topo */
+  top: 0;
+}
+.header-inner {
+  display: flex;                 /* Itens lado a lado */
+  justify-content: space-between;/* Espaço entre logo e menu */
+  align-items: center;           /* Centraliza verticalmente */
+  padding: 1rem 0;
+}
+.logo {
+  font-family: 'Bangers', cursive;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--red); } /* Parte da logo em vermelho */
+.nav { display: flex; gap: 1rem; } /* Menu em linha */
+.nav-link {
+  padding: .5rem .8rem;
+  border-radius: var(--radius);
+  color: #e7e7e7;
+  transition: 0.2s; /* Suaviza o hover */
+}
+.nav-link:hover { background: #2a2a2a; }
+.nav-link.active {
+  background: var(--red); /* Link ativo em destaque */
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+/* ===== SEÇÃO HERO (destaque inicial) ===== */
+.hero {
+  padding: 3rem 0;
+  text-align: center;
+}
+.actions { margin-top: 1rem; } /* Espaço nos botões */
+
+/* ===== BOTÕES ===== */
+.btn {
+  display: inline-block;
+  padding: .75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--red);       /* Fundo vermelho */
+  color: white;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--red); /* Borda da mesma cor */
+  transition: transform .08s ease-in-out, filter .2s ease;
+}
+.btn:hover { filter: brightness(1.05); transform: translateY(-1px); } /* Efeito ao passar o mouse */
+.btn.ghost { background: transparent; color: var(--red); } /* Botão só com borda */
+.btn.small { padding: .5rem .75rem; font-size: .95rem; }   /* Botão menor */
+
+/* ===== CARDS ===== */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+.grid-3 { grid-template-columns: repeat(3, 1fr); } /* 3 colunas */
+.card {
+  background: #1a1a1a;
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.card-title { font-weight: bold; margin-bottom: .5rem; }
+.card-img {
+  width: 100%;
+  height: 200px;              /* Todas imagens iguais */
+  border-radius: var(--radius);
+  border: 1px solid #2a2a2a;
+  object-fit: cover;          /* Preenche cortando */
+}
+.caption {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: .5rem;
+}
+
+/* ===== TABELA ===== */
+.table-wrap { overflow-x: auto; } /* Scroll se for muito larga */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+.table th, .table td {
+  padding: .75rem .9rem;
+  border-bottom: 1px solid #2a2a2a;
+  text-align: left;
+}
+.table th {
+  background: #151515;
+  font-weight: 800;
+}
+.table tr:hover {
+  background: rgba(193,18,31,.06); /* Destaca linha no hover */
+}
+
+/* ===== RODAPÉ ===== */
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: #000;
+  color: var(--muted);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+  .grid-3 { grid-template-columns: 1fr; } /* Cards em 1 coluna no celular */
+}
